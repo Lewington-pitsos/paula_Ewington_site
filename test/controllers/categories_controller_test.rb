@@ -1,7 +1,8 @@
 require 'test_helper'
 
 class CategoriesControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  test "categories ahs index page" do
+    get categories_path
+    assert_response :success
+  end
 end

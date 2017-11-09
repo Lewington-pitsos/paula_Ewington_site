@@ -10,7 +10,7 @@ class AdminsController < ApplicationController
     if @admin.authenticated?
       flash[:success] = 'logged in as admin'
       sign_in(@admin, @admin.stay_signed_in != '0')
-      redirect_to works_path
+      redirect_to categories_path
     else
       flash.now[:error] = 'incorrect login credentials'
       render 'new'
@@ -20,7 +20,7 @@ class AdminsController < ApplicationController
   def destroy
     sign_out(params[:id])
     flash[:success] = 'logged out, viewing site as a regular user'
-    redirect_to works_path
+    redirect_to categories_path
   end
 
   def authorize

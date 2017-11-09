@@ -1,0 +1,24 @@
+<h1>Gallery</h1>
+
+<ul>
+  <% @categories.each do |category| %>
+    <li>
+      <h3>Title: <%= link_to category.title, category_path(category.id) %></h3>
+      <br />
+      <%= image_tag category.image.url, size: "200x200" %>
+      <% if session[:admin] %>
+        <%= button_to 'Delete', "/categorys/#{category.id}", method: :delete %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+
+<%= link_to 'Front Page', front_path %>
+<%= link_to 'About the Artist', about_path %>
+<% if session[:admin] %>
+  <%= link_to 'upload', new_category_path %>
+  <%= button_to 'Sign out', "/admins/#{session[:admin]}", method: :delete %>
+<% else %>
+  <%= link_to 'Admin Sign In', new_admin_path %>
+<% end %>

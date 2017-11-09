@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :works, :admins
+  resources :works, :admins, :categories
 
   match '/front' => 'works#front',
     via: :get,

@@ -1,5 +1,8 @@
 printing:
   title: 'prints'
+  image: nil
+  id: 1
 
 painting:
   title: 'paintings'
+  image: nil

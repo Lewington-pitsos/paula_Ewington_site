@@ -6,7 +6,7 @@ class AdminsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "admin link exists" do
-    get works_path
+    get categories_path
     assert response.body.match('Admin')
   end
 
