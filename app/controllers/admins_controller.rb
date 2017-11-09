@@ -18,7 +18,9 @@ class AdminsController < ApplicationController
   end
 
   def destroy
-
+    sign_out
+    session[:success] = 'logged out, viewing site as a regular user'
+    redirect_to works_path
   end
 
   private

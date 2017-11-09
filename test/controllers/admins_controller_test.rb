@@ -36,4 +36,13 @@ class AdminsControllerTest < ActionDispatch::IntegrationTest
     post '/admins', params: {admin: {username: 'paula', password: 'colston'}}
     assert session[:admin]
   end
+
+  test "admin sign out recorded in session" do
+    post '/admins', params: {admin: {username: 'paula', password: 'colston'}}
+    delete '/admins/paula'
+    assert_response :redirect
+    follow_redirect!
+    assert_response :success
+    assert_not session[:admin]
+  end
 end
