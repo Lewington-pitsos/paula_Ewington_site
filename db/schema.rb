@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20171109060105) do
   create_table "admins", force: :cascade do |t|
     t.string "username", null: false
     t.string "encrypted_pass", null: false
+    t.string "encrypted_token"
     t.string "salt", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
