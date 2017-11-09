@@ -13,9 +13,9 @@
   <% end %>
 </ul>
 
-<%= link_to 'upload', new_work_path %>
 <%= link_to 'Admin Sign In', new_admin_path %>
 <%= link_to 'Front Page', front_path %>
 <% if session[:admin] %>
+  <%= link_to 'upload', new_work_path %>
   <%= button_to 'Sign out', "/admins/#{session[:admin]}", method: :delete %>
 <% end %>
