@@ -1,7 +1,7 @@
 module AdminsHelper
-  def sign_in(admin)
+  def sign_in(admin, stay = true)
     admin.store_new_token
-    store_to_cookie(admin)
+    store_to_cookie(admin) if stay
     session[:admin] = admin.username
   end
 

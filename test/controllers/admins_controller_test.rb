@@ -17,7 +17,7 @@ class AdminsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "admin can sign in" do
-    post '/admins', params: {admin: {username: 'paula', password: 'colston'}}
+    sign_in
     assert_response :redirect
     follow_redirect!
     assert_response :success
@@ -34,12 +34,12 @@ class AdminsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "admin sign in recorded in session" do
-    post '/admins', params: {admin: {username: 'paula', password: 'colston'}}
+    sign_in
     assert session[:admin]
   end
 
   test "admin sign out recorded in session" do
-    post '/admins', params: {admin: {username: 'paula', password: 'colston'}}
+    sign_in
     delete '/admins/paula'
     assert_response :redirect
     follow_redirect!
@@ -69,7 +69,7 @@ class AdminsControllerTest < ActionDispatch::IntegrationTest
     assert_not response.body.match('Sign out')
     assert_not response.body.match('Delete')
 
-    post '/admins', params: {admin: {username: 'paula', password: 'colston'}}
+    sign_in
     assert_response :redirect
     follow_redirect!
     assert response.body.match('Sign out')
@@ -121,7 +121,16 @@ class AdminsControllerTest < ActionDispatch::IntegrationTest
     assert_not session[:admin]
   end
 
-  def sign_in
+  test "doesn't save cookies if un-checked box" do
     post '/admins', params: {admin: {username: 'paula', password: 'colston'}}
+    assert_not cookies[:name]
+
+    sign_in
+    assert cookies[:name]
+
+  end
+
+  def sign_in
+    post '/admins', params: {admin: {username: 'paula', password: 'colston', stay_signed_in: 1}}
   end
 end

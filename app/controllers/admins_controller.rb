@@ -9,7 +9,7 @@ class AdminsController < ApplicationController
 
     if @admin.authenticated?
       flash[:success] = 'logged in as admin'
-      sign_in(@admin)
+      sign_in(@admin, @admin.stay_signed_in != '0')
       redirect_to works_path
     else
       flash.now[:error] = 'incorrect login credentials'
@@ -34,6 +34,6 @@ class AdminsController < ApplicationController
   private
 
   def admin_credentials
-    params.require(:admin).permit(:username, :password)
+    params.require(:admin).permit(:username, :password, :stay_signed_in)
   end
 end
