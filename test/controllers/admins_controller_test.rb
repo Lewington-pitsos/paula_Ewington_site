@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class AdminsControllerTest < ActionDispatch::IntegrationTest
-
   setup do
     add_admin
   end
@@ -66,7 +65,7 @@ class AdminsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "sign_out/delete buttons only exist for admins" do
-    get '/'
+    get works_path
     assert_not response.body.match('Sign out')
     assert_not response.body.match('Delete')
 

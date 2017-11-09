@@ -29,6 +29,11 @@ class WorksController < ApplicationController
     redirect_to works_path
   end
 
+  def front
+    @work = Work.first
+    render 'front_page'
+  end
+
   private
 
   def find_work

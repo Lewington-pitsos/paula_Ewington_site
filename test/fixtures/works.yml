@@ -1,11 +1,11 @@
 jeep:
   title: jeep
-  image: the_jeep.png
+  image: default_work.jpg
 
 jeep2:
   title: jeep2
-  image: the_jeep.png
+  image: default_work.jpg
 
 jeep3:
   title: jeep3
-  image: the_jeep.png
+  image: default_work.jpg
