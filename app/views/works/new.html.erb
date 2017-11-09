@@ -4,9 +4,15 @@
   <%= f.label 'Work Name:' %>
   <%= f.text_field :title %>
   <br />
+
   <%= f.label 'Image:' %>
   <%= f.file_field :image %>
+  <br />
+
+  <%= f.label 'Caption:' %>
+  <%= f.text_area :caption %>
   <br /><br />
+  
   <%= f.submit 'Upload' %>
 <% end %>
 

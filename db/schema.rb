@@ -19,10 +19,12 @@ ActiveRecord::Schema.define(version: 20171109060105) do
     t.string "salt", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["username"], name: "index_admins_on_username"
   end
 
   create_table "works", force: :cascade do |t|
     t.string "title", null: false
+    t.string "caption"
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

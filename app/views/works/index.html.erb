@@ -3,7 +3,7 @@
 <ul>
   <% @works.each do |work| %>
     <li>
-      <h3>Title: <%= work.title %></h3>
+      <h3>Title: <%= link_to work.title, work_path(work.id) %></h3>
       <br />
       <%= image_tag work.image.url, size: "200x200" %>
       <% if session[:admin] %>
