@@ -1,10 +1,11 @@
 class WorksController < ApplicationController
-  def index
+  before_action :find_work, only: [:show, :destroy]
 
+  def index
+    @works = Work.all
   end
 
   def show
-    @work = Work.find(params['id'])
   end
 
   def new
@@ -23,7 +24,16 @@ class WorksController < ApplicationController
     end
   end
 
+  def destroy
+    @work.destroy
+    redirect_to works_path
+  end
+
   private
+
+  def find_work
+    @work = Work.find(params[:id])
+  end
 
   def image_info
     params.require(:work).permit(:title, :image)

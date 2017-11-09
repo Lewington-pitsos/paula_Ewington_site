@@ -13,13 +13,13 @@ class WorksControllerTest < ActionDispatch::IntegrationTest
 
     get new_work_path
     assert_response :success
-    
+
     get work_path(Work.first.id)
     assert_response :success
 
-    # delete work_path
-    # assert_response :redirect
-    # follow_redirect!
-    # assert_response :success
+    delete work_path(Work.first.id)
+    assert_response :redirect
+    follow_redirect!
+    assert_response :success
   end
 end
