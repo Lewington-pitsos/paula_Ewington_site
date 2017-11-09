@@ -76,7 +76,7 @@ class AdminsControllerTest < ActionDispatch::IntegrationTest
     assert response.body.match('Delete')
   end
 
-  test "stores token on sign in and out" do
+  test "stores token to db on sign in and out" do
     token1 = Admin.first.encrypted_token
     sign_in
     token2 = Admin.first.encrypted_token
@@ -84,6 +84,14 @@ class AdminsControllerTest < ActionDispatch::IntegrationTest
     delete '/admins/paula'
     token3 = Admin.first.encrypted_token
     assert token2 != token3
+  end
+
+  test "stores token to cookie on sign in" do
+    assert_not cookies[:auth_token]
+    assert_not cookies[:name]
+    sign_in
+    assert cookies[:auth_token]
+    assert cookies[:name]
   end
 
   def sign_in

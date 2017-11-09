@@ -13,7 +13,8 @@ module AdminHelper
     admin = Admin.new({
         username: 'paula',
         encrypted_pass: e_pass,
-        salt: salt
+        salt: salt,
+        encrypted_token: 'qqq'
       })
 
     admin.save

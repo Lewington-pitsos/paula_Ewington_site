@@ -25,4 +25,8 @@ class Admin < ApplicationRecord
     Admin.where(username: username).take
   end
 
+  def tokens_match(token)
+    self.encrypted_token == token
+  end
+
 end

@@ -15,4 +15,10 @@ class AdminTest < ActiveSupport::TestCase
     admin.store_new_token
     assert token != Admin.first.encrypted_token
   end
+
+  test "can check for matching tokens" do
+    admin = Admin.first
+    assert admin.tokens_match 'qqq'
+    assert_not admin.tokens_match 'ppp'
+  end
 end
