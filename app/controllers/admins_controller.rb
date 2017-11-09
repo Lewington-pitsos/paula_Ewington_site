@@ -23,6 +23,14 @@ class AdminsController < ApplicationController
     redirect_to works_path
   end
 
+  def authorize
+    admin = Admin.where(username: cookies.signed[:name]).take
+    if admin && admin.tokens_match(cookies[:auth_token])
+      sign_in(admin)
+    end
+    redirect_to front_path
+  end
+
   private
 
   def admin_credentials

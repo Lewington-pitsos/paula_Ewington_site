@@ -94,6 +94,34 @@ class AdminsControllerTest < ActionDispatch::IntegrationTest
     assert cookies[:name]
   end
 
+  test "validates cookie tokens against admin db" do
+    sign_in
+    token1 = Admin.first.encrypted_token
+    get authorize_path
+    token2 = Admin.first.encrypted_token
+    assert token1 != token2
+  end
+
+  test "won't authorize an invalid name" do
+    # sign_in
+    # token1 = Admin.first.encrypted_token
+    # request.cookies[:name] = 'paul'
+    # get authorize_path
+    # token2 = Admin.first.encrypted_token
+    # binding.pry
+    # assert token1 == token2
+  end
+
+  test "signing out clears cookied"
+    sign_in
+    assert cookies[:auth_token]
+    assert coookies[:name]
+    delete '/admins/paula'
+    assert_not cookies[:auth_token]
+    assert_not coookies[:name]
+
+  end
+
   def sign_in
     post '/admins', params: {admin: {username: 'paula', password: 'colston'}}
   end

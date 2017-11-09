@@ -10,11 +10,13 @@ module AdminHelper
 
     e_pass = Digest::SHA1.hexdigest("#{salt}--#{password}")
 
+    token = Digest::SHA1.hexdigest("#{salt}--#{'qqq'}")
+
     admin = Admin.new({
         username: 'paula',
         encrypted_pass: e_pass,
         salt: salt,
-        encrypted_token: 'qqq'
+        encrypted_token: token
       })
 
     admin.save

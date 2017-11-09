@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   resources :works, :admins
 
-  root 'works#front', as: 'front'
+  match '/front' => 'works#front',
+    via: :get,
+    as: 'front'
+
+  root 'admins#authorize', as: 'authorize'
 end

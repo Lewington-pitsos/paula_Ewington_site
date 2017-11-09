@@ -1,9 +1,11 @@
 require 'test_helper'
 
 class WorksControllerTest < ActionDispatch::IntegrationTest
-  include ActionView::Helpers::UrlHelper 
+  include ActionView::Helpers::UrlHelper
   test "root requests load works front_page" do
     get '/'
+    assert_response :redirect
+    follow_redirect!
     assert_response :success
     assert current_page?(front_path)
     assert response.body.match("Welcome")

@@ -4,19 +4,19 @@ class Admin < ApplicationRecord
   def authenticated?
     verified_admin = get_verified_admin(self.username)
     if verified_admin
-      salt = verified_admin.salt
-      return verified_admin.encrypted_pass == encrypted(salt)
+      self.salt = verified_admin.salt
+      return verified_admin.encrypted_pass == encrypted
     end
     false
   end
 
-  def encrypted(salt, value = self.password)
-    Digest::SHA1.hexdigest("#{salt}--#{value}")
+  def encrypted(value = self.password)
+    Digest::SHA1.hexdigest("#{self.salt}--#{value}")
   end
 
   def store_new_token
     self.raw_token = SecureRandom.urlsafe_base64
-    encrypted_token = self.encrypted(self.salt, raw_token)
+    encrypted_token = self.encrypted(raw_token)
     admin = get_verified_admin(self.username)
     admin.update_attribute :encrypted_token, encrypted_token
   end
@@ -26,7 +26,7 @@ class Admin < ApplicationRecord
   end
 
   def tokens_match(token)
-    self.encrypted_token == token
+    self.encrypted_token == encrypted(token)
   end
 
 end
