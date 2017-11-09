@@ -112,14 +112,13 @@ class AdminsControllerTest < ActionDispatch::IntegrationTest
     # assert token1 == token2
   end
 
-  test "signing out clears cookied"
+  test "signing out prevents auto sign in" do
     sign_in
     assert cookies[:auth_token]
-    assert coookies[:name]
+    assert cookies[:name]
     delete '/admins/paula'
-    assert_not cookies[:auth_token]
-    assert_not coookies[:name]
-
+    get authorize_path
+    assert_not session[:admin]
   end
 
   def sign_in
