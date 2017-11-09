@@ -12,5 +12,10 @@ admin = Admin.new({
 
 admin.save
 
-work1 = Work.new([
-  {title: 'art1', image:}])
+work1 = Work.new({title: 'art1', image: nil})
+work2 = Work.new({title: 'art2', image: nil})
+work3 = Work.new({title: 'art3', image: nil})
+
+work1.save
+work2.save
+work3.save
