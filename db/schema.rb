@@ -32,8 +32,10 @@ ActiveRecord::Schema.define(version: 20171109212937) do
     t.string "title", null: false
     t.string "caption"
     t.string "image"
+    t.integer "category_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_works_on_category_id"
   end
 
 end

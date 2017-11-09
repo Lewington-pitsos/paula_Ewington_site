@@ -122,7 +122,8 @@ class AdminsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "doesn't save cookies if un-checked box" do
-    post '/admins', params: {admin: {username: 'paula', password: 'colston'}}
+    assert_not cookies[:name]
+    post '/admins', params: {admin: {username: 'paula', password: 'colston', stay_signed_in: '0'}}
     assert_not cookies[:name]
 
     sign_in

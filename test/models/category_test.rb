@@ -5,5 +5,6 @@ class CategoryTest < ActiveSupport::TestCase
     cat = Category.first
     assert cat.title
     assert cat.works
+    assert cat.works[0] == jeep
   end
 end

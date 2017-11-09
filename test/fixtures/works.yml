@@ -1,11 +1,17 @@
 jeep:
   title: jeep
   image: default_work.jpg
+  caption: 'asdassssssssssssssssssssssssssssssfasr5fsg'
+  category_id: 1
 
 jeep2:
   title: jeep2
   image: default_work.jpg
+  caption: 'asdassssssssssssssssssssssssssssssfasr5fsg'
+  category_id: 1
 
 jeep3:
   title: jeep3
   image: default_work.jpg
+  caption: 'asdassssssssssssssssssssssssssssssfasr5fsg'
+  category_id: 1
