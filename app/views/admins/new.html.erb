@@ -5,9 +5,13 @@
   <%= f.text_field :username %>
   <br />
   <%= f.label 'Password:' %>
-  <%= f.text_field :password %>
-
+  <%= f.password_field :password %>
   <br />
+
+  <%= f.label 'Stay Signed in?' %>
+  <%= f.check_box :stay_signed_in, :checked => true %>
+  <br />
+
   <%= f.submit %>
 <% end %>
 

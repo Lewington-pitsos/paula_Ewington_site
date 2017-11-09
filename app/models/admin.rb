@@ -1,5 +1,5 @@
 class Admin < ApplicationRecord
-  attr_accessor :password, :raw_token
+  attr_accessor :password, :raw_token, :stay_signed_in
 
   def authenticated?
     verified_admin = get_verified_admin(self.username)
