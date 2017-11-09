@@ -6,9 +6,15 @@
       <h3>Title: <%= work.title %></h3>
       <br />
       <%= image_tag work.image.url, size: "200x200" %>
+      <% if session[:admin] %>
+        <%= button_to 'Delete', "/works/#{work.id}", method: :delete %>
+      <% end %>
     </li>
   <% end %>
 </ul>
 
 <%= link_to 'upload', new_work_path %>
 <%= link_to 'Admin Sign In', new_admin_path %>
+<% if session[:admin] %>
+  <%= button_to 'Sign out', "/admins/#{session[:admin]}", method: :delete %>
+<% end %>

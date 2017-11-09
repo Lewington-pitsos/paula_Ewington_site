@@ -64,4 +64,16 @@ class AdminsControllerTest < ActionDispatch::IntegrationTest
     post '/admins', params: {admin: {username: 'p', password: 'colston'}}
     assert_select '.flash'
   end
+
+  test "sign_out/delete buttons only exist for admins" do
+    get '/'
+    assert_not response.body.match('Sign out')
+    assert_not response.body.match('Delete')
+
+    post '/admins', params: {admin: {username: 'paula', password: 'colston'}}
+    assert_response :redirect
+    follow_redirect!
+    assert response.body.match('Sign out')
+    assert response.body.match('Delete')
+  end
 end

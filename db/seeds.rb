@@ -11,3 +11,6 @@ admin = Admin.new({
   })
 
 admin.save
+
+work1 = Work.new([
+  {title: 'art1', image:}])
