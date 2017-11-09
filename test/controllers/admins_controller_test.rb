@@ -30,4 +30,10 @@ class AdminsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert flash[:error]
   end
+
+  test "admin sign in recorded in session" do
+    add_admin
+    post '/admins', params: {admin: {username: 'paula', password: 'colston'}}
+    assert session[:admin]
+  end
 end

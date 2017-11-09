@@ -9,6 +9,7 @@ class AdminsController < ApplicationController
 
     if @admin.authenticated?
       flash[:success] = 'logged in as admin'
+      sign_in(@admin)
       redirect_to works_path
     else
       flash.now[:error] = 'incorrect login credentials'
