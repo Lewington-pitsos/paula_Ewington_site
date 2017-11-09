@@ -5,4 +5,10 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     get categories_path
     assert_response :success
   end
+
+  test "show path" do
+    get category_path(1)
+    assert_response :success
+  end
+
 end

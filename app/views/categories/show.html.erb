@@ -1,0 +1,18 @@
+<h1>Gallery</h1>
+
+<ul>
+  <% @works.each do |work| %>
+    <li>
+      <h3>Title: <%= link_to work.title, work_path(work.id) %></h3>
+      <br />
+      <%= image_tag work.image.url, size: "200x200" %>
+      <% if session[:admin] %>
+        <%= button_to 'Delete', "/works/#{work.id}", method: :delete %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+
+
+<%= link_to 'Categories', categories_path %>
+<%= link_to 'About the Artist', about_path %>

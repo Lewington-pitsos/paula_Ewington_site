@@ -11,11 +11,8 @@ class WorksControllerTest < ActionDispatch::IntegrationTest
     assert response.body.match("Welcome")
   end
 
-  test "work has index, new, show and delete" do
-    get works_path
-    assert_response :success
-
-    get new_work_path
+  test "work has new, show and delete" do
+    get new_category_works_path(1)
     assert_response :success
 
     get work_path(Work.first.id)

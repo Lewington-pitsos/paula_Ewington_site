@@ -9,6 +9,7 @@ class WorksController < ApplicationController
   end
 
   def new
+    @category = Category.find(params[:category_id])
     @work = Work.new
   end
 
@@ -26,7 +27,7 @@ class WorksController < ApplicationController
 
   def destroy
     @work.destroy
-    redirect_to works_path
+    redirect_to categories_path
   end
 
   def front

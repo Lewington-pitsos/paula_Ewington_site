@@ -65,7 +65,7 @@ class AdminsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "sign_out/delete buttons only exist for admins" do
-    get works_path
+    get categories_path
     assert_not response.body.match('Sign out')
     assert_not response.body.match('Delete')
 
