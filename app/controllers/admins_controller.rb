@@ -18,7 +18,7 @@ class AdminsController < ApplicationController
   end
 
   def destroy
-    sign_out
+    sign_out(params[:id])
     flash[:success] = 'logged out, viewing site as a regular user'
     redirect_to works_path
   end

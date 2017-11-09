@@ -48,7 +48,7 @@ class AdminsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "admin actions cause visible flashes" do
-    post '/admins', params: {admin: {username: 'paula', password: 'colston'}}
+    sign_in
     assert_response :redirect
     follow_redirect!
     assert_response :success
@@ -74,5 +74,19 @@ class AdminsControllerTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert response.body.match('Sign out')
     assert response.body.match('Delete')
+  end
+
+  test "stores token on sign in and out" do
+    token1 = Admin.first.encrypted_token
+    sign_in
+    token2 = Admin.first.encrypted_token
+    assert token1 != token2
+    delete '/admins/paula'
+    token3 = Admin.first.encrypted_token
+    assert token2 != token3
+  end
+
+  def sign_in
+    post '/admins', params: {admin: {username: 'paula', password: 'colston'}}
   end
 end

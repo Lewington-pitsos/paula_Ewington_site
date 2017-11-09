@@ -11,8 +11,8 @@ class AdminTest < ActiveSupport::TestCase
 
   test "can save a token to db" do
     admin = Admin.first
-    admin.store_new_token
     token = admin.encrypted_token
-    assert token == Admin.first.encrypted_token
+    admin.store_new_token
+    assert token != Admin.first.encrypted_token
   end
 end

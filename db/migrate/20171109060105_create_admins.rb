@@ -8,5 +8,7 @@ class CreateAdmins < ActiveRecord::Migration[5.1]
 
       t.timestamps
     end
+
+    add_index :admins, :username
   end
 end
