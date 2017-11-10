@@ -1,5 +1,5 @@
 class WorksController < ApplicationController
-  before_action :find_work, only: [:show, :destroy, :edit]
+  before_action :find_work, only: [:show, :destroy, :edit, :update]
 
   def index
     @works = Work.all
@@ -31,7 +31,16 @@ class WorksController < ApplicationController
   end
 
   def edit
+  end
 
+  def update
+    if @work.update_attributes(image_info)
+      flash[:success] = 'work updated'
+      redirect_to categories_path
+    else
+      flash.now[:error] = 'invalid input'
+      render 'edit'
+    end
   end
 
   # ----------------------------------

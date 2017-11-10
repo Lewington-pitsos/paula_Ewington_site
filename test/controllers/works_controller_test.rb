@@ -33,4 +33,13 @@ class WorksControllerTest < ActionDispatch::IntegrationTest
     get edit_work_path(1)
     assert response.body.match(works(:jeep).title)
   end
+
+  test 'works edits cause changes to changed fields' do
+    title = 'changed'
+    caption = 'different caption'
+    put "/works/#{1}", params: {work: {title: title, image: nil, caption: caption}}
+    changed_work = Work.find(1)
+    assert changed_work.title == title
+    assert changed_work.caption == caption
+  end
 end
