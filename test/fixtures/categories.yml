@@ -6,3 +6,4 @@ printing:
 painting:
   title: 'paintings'
   image: nil
+  id: 2

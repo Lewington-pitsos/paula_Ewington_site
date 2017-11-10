@@ -42,4 +42,13 @@ class WorksControllerTest < ActionDispatch::IntegrationTest
     assert changed_work.title == title
     assert changed_work.caption == caption
   end
+
+  test "new works have category id" do
+    title = 'new work'
+    caption = 'caption'
+    post category_works_path(2), params: {work: {title: title, image: nil, caption: caption}}
+    new_work = Work.where(title: 'new work').take
+    assert new_work.category_id
+    assert_equal 2, new_work.category_id
+  end
 end
