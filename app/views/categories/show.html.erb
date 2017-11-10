@@ -1,4 +1,4 @@
-<h1>Gallery</h1>
+<h1><%= @category.title %></h1>
 
 <ul>
   <% @works.each do |work| %>
@@ -15,9 +15,5 @@
 </ul>
 
 
-<%= link_to 'Categories', categories_path %>
-<%= link_to 'About the Artist', abouts_path %>
-<% if session[:admin] %>
-  <%= link_to 'upload', new_category_works_path(@id) %>
-  <%= button_to 'Sign out', "/admins/#{session[:admin]}", method: :delete %>
-<% end %>
+
+<%= link_to 'All galleries', categories_path %>

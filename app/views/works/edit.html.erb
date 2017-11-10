@@ -1,4 +1,4 @@
-<h1>Upload Artwork</h1>
+<h1>Edit Artwork</h1>
 
 <%= form_for @work do |f| %>
   <%= f.label 'Work Name:' %>
@@ -13,7 +13,7 @@
   <%= f.text_area :caption %>
   <br /><br />
 
-  <%= f.submit 'Upload' %>
+  <%= f.submit 'Save changes' %>
 <% end %>
 
-<%= link_to 'Back to gallery', categories_path %>
+<%= link_to 'Back to gallery', category_path(@work.category.id) %>
