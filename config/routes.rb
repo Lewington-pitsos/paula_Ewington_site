@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
   resources :works, only: [:show, :edit, :update, :destroy]
 
-  match '/front' => 'works#front',
+  match '/front' => 'miscs#front',
     via: :get,
     as: 'front'
 

@@ -1,6 +1,6 @@
 class MiscsController < ApplicationController
 
-  def about
-    render 'about'
+  def front
+    render 'front_page', layout: false
   end
 end

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PaulaSite</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <h1>Welcome!</h1>
+
+    <%= image_tag 'default_work.jpg' %>
+
+    <%= link_to 'Galleries', categories_path %>
+  </body>
+</html>
