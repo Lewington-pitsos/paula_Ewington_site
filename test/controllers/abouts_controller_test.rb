@@ -11,8 +11,10 @@ class AboutsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "create path exists" do
+  test "update path exists" do
     put '/abouts/1', params: {about: {statement: nil, image: nil, bio: nil}}
+    assert_response :redirect
+    follow_redirect!
     assert_response :success
   end
 

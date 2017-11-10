@@ -16,7 +16,7 @@ class WorksController < ApplicationController
   def create
     @category = Category.find(params[:category_id])
     @work = @category.works.create(image_info)
-    if work
+    if @work
       flash[:success] = 'work uploaded and saved *nice*'
       redirect_to category_path(params[:category_id])
     else
