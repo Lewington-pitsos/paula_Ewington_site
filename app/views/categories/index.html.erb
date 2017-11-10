@@ -7,7 +7,7 @@
       <br />
       <%= image_tag category.image.url, size: "200x200" %>
       <% if session[:admin] %>
-        <%= button_to 'Delete', "/categorys/#{category.id}", method: :delete %>
+        <%= button_to 'Delete', "/categories/#{category.id}", method: :delete %>
         <%= button_to 'Edit', edit_category_path(category.id), method: :get %>
       <% end %>
     </li>
