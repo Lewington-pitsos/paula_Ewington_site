@@ -1,0 +1,15 @@
+<h1>About Paula Ewington</h1>
+
+<%= image_tag @about.image.url %>
+
+<h3>Artist Statament:<h3>
+<p>
+  <%= @about.statement %>
+</p>
+
+<h3>Biography: <h3>
+<p>
+  <%= @about.bio %>
+</p>
+
+<%= link_to 'gallery', categories_path %>

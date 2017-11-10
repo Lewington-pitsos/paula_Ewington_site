@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :admins
+  resources :admins, :abouts
 
   resources :categories do
     resource :works, only: [:index, :new, :create]
@@ -9,11 +9,6 @@ Rails.application.routes.draw do
   match '/front' => 'works#front',
     via: :get,
     as: 'front'
-
-
-  match '/about' => 'miscs#about',
-    via: :get,
-    as: 'about'
 
   root 'admins#authorize', as: 'authorize'
 end

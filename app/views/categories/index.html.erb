@@ -15,7 +15,7 @@
 
 
 <%= link_to 'Front Page', front_path %>
-<%= link_to 'About the Artist', about_path %>
+<%= link_to 'About the Artist', abouts_path %>
 <% if session[:admin] %>
   <%= link_to 'upload', new_category_path %>
   <%= button_to 'Sign out', "/admins/#{session[:admin]}", method: :delete %>

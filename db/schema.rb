@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20171110074432) do
   create_table "abouts", force: :cascade do |t|
     t.string "image"
     t.string "statement"
+    t.string "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

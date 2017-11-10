@@ -1,3 +1,11 @@
+about = About.new({
+    image: nil,
+    bio: 'sahduajsfafs',
+    statement: 'asdasduasdudasuudauads'
+  })
+
+about.save
+
 password = 'colston'
 
 salt = Digest::SHA1.hexdigest("#{password}--#{Time.now} as random value")
