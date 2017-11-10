@@ -18,7 +18,7 @@ class WorksController < ApplicationController
     work = category.works.create(image_info)
     if work
       flash[:success] = 'work uploaded and saved *nice*'
-      redirect_to work_path(work.id)
+      redirect_to category_path(params[:category_id])
     else
       flash.now[:error] = "invalid input, no upload occured :("
       render 'new'
@@ -36,7 +36,7 @@ class WorksController < ApplicationController
   def update
     if @work.update_attributes(image_info)
       flash[:success] = 'work updated'
-      redirect_to categories_path
+      redirect_to category_path(@work.category_id)
     else
       flash.now[:error] = 'invalid input'
       render 'edit'

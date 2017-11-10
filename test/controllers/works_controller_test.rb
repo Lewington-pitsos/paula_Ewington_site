@@ -51,4 +51,25 @@ class WorksControllerTest < ActionDispatch::IntegrationTest
     assert new_work.category_id
     assert_equal 2, new_work.category_id
   end
+
+  test "updated/craeted works reroute to the correct gallery" do
+    title = 'new work'
+    caption = 'caption'
+    post category_works_path(2), params: {work: {title: title, image: nil, caption: caption}}
+    assert_response :redirect
+    follow_redirect!
+    assert_response :success
+    assert response.body.match(title)
+    route = request.path # <<<<<<<<<<<<<<<<<<<<<<<<<<<< getting current path
+
+    new_title = 'new work'
+    new_caption = 'caption'
+    work_id = Work.where(title: title).take.id
+    put "/works/#{work_id}", params: {work: {title: new_title, image: nil, caption: new_caption}}
+    assert_response :redirect
+    follow_redirect!
+    assert_response :success
+    assert response.body.match(title)
+    assert current_page?(route), 'the updated work has been designated a different category'
+  end
 end
