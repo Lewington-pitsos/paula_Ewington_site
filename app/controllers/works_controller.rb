@@ -26,8 +26,9 @@ class WorksController < ApplicationController
   end
 
   def destroy
+    id = @work.category.id
     @work.destroy
-    redirect_to categories_path
+    redirect_to category_path(id)
   end
 
   def edit
