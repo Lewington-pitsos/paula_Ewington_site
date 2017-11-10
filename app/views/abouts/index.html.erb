@@ -11,5 +11,7 @@
 <p>
   <%= @about.bio %>
 </p>
-
+<% if session[:admin] %>
+  <%= link_to 'Edit Artist info', edit_about_path(1) %>
+<% end %>
 <%= link_to 'gallery', categories_path %>
