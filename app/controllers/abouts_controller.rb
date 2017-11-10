@@ -1,6 +1,6 @@
 class AboutsController < ApplicationController
   def edit
-
+    @about = About.first
   end
 
   def create

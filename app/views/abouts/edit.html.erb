@@ -1,0 +1,19 @@
+<h1>Edit Artist Info:</h1>
+
+<%= form_for @about do |f| %>
+  <%= f.label 'Statament:' %>
+  <%= f.text_field :statement %>
+  <br />
+
+  <%= f.label 'Biography:' %>
+  <%= f.text_field :bio %>
+  <br />
+
+  <%= f.label 'Cover image:' %>
+  <%= f.file_field :image %>
+  <br />
+
+  <%= f.submit 'Update' %>
+<% end %>
+
+<%= link_to 'Back to gallery', abouts_path %>
