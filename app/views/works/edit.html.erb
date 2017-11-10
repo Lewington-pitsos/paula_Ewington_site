@@ -1,0 +1,19 @@
+<h1>Upload Artwork</h1>
+
+<%= form_for @work do |f| %>
+  <%= f.label 'Work Name:' %>
+  <%= f.text_field :title %>
+  <br />
+
+  <%= f.label 'Image:' %>
+  <%= f.file_field :image %>
+  <br />
+
+  <%= f.label 'Caption:' %>
+  <%= f.text_area :caption %>
+  <br /><br />
+
+  <%= f.submit 'Upload' %>
+<% end %>
+
+<%= link_to 'Back to gallery', categories_path %>

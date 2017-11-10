@@ -13,7 +13,7 @@ admin = Admin.new({
 admin.save
 
 paintings = Category.new({title: 'paintings', image: nil})
-paintings = Category.new({title: 'prints', image: nil})
+prints = Category.new({title: 'prints', image: nil})
 prints.save
 paintings.save
 

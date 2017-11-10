@@ -1,5 +1,5 @@
 class WorksController < ApplicationController
-  before_action :find_work, only: [:show, :destroy]
+  before_action :find_work, only: [:show, :destroy, :edit]
 
   def index
     @works = Work.all
@@ -29,6 +29,12 @@ class WorksController < ApplicationController
     @work.destroy
     redirect_to categories_path
   end
+
+  def edit
+
+  end
+
+  # ----------------------------------
 
   def front
     @work = Work.first

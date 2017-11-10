@@ -8,6 +8,7 @@
       <%= image_tag work.image.url, size: "200x200" %>
       <% if session[:admin] %>
         <%= button_to 'Delete', "/works/#{work.id}", method: :delete %>
+        <%= button_to 'Edit', edit_work_path, method: :get %>
       <% end %>
     </li>
   <% end %>

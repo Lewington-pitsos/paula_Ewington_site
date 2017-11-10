@@ -23,4 +23,14 @@ class WorksControllerTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert_response :success
   end
+
+  test 'work has edit page' do
+    get edit_work_path(1)
+    assert_response :success
+  end
+
+  test 'works edit page displays current info' do
+    get edit_work_path(1)
+    assert response.body.match(works(:jeep).title)
+  end
 end
