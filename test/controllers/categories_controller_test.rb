@@ -29,4 +29,13 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     get edit_category_path(1)
     assert_response :success
   end
+
+  test 'update path saves to db' do
+    title = 'changed'
+    put '/categories/1', params: {category: {title: title, image: nil}}
+    assert_response :redirect
+    follow_redirect!
+    assert_response :success
+    assert_equal title, Category.find(1).title
+  end
 end

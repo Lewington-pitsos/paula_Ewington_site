@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :find_category, only: [:edit, :show]
+  before_action :find_category, only: [:edit, :show, :update, :destroy]
 
   def index
     @categories = Category.all
@@ -25,6 +25,16 @@ class CategoriesController < ApplicationController
   end
 
   def edit
+  end
+
+  def update
+    if @category.update_attributes(category_info)
+      flash[:success] = 'category successfully updated'
+      redirect_to categories_path
+    else
+      flash.now[:error] = 'that input was invalid'
+      render 'edit'
+    end
   end
 
   private
