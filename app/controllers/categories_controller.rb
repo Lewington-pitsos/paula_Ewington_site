@@ -1,10 +1,11 @@
 class CategoriesController < ApplicationController
+  before_action :find_category, only: [:edit, :show]
+
   def index
     @categories = Category.all
   end
 
   def show
-    @category = Category.find(params[:id])
     @works = @category.works
   end
 
@@ -21,6 +22,15 @@ class CategoriesController < ApplicationController
       flash.now[:error] = "invalid input, no upload occured :("
       render 'new'
     end
+  end
+
+  def edit
+  end
+
+  private
+
+  def find_category
+    @category = Category.find(params[:id])
   end
 
   def category_info

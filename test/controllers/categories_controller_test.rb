@@ -24,4 +24,9 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert Category.where(title: title).take
   end
+
+  test 'edit path exists' do
+    get edit_category_path(1)
+    assert_response :success
+  end
 end
