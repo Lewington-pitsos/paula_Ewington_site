@@ -9,6 +9,9 @@
   <%= f.file_field :image %>
   <br />
 
+  <%= f.label 'Place (1 = first place, 2 = second, etc...):' %>
+  <%= f.number_field :place, value: @category.position %>
+  <br />
   <%= f.submit 'Save Changes' %>
 <% end %>
 

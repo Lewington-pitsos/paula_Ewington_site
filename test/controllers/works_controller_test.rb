@@ -72,23 +72,4 @@ class WorksControllerTest < ActionDispatch::IntegrationTest
     assert response.body.match(title)
     assert current_page?(route), 'the updated work has been designated a different category'
   end
-
-  test "saving updates place" do
-    place = 9
-    put "/works/#{1}", params: {work: {title: 'sss', image: nil, caption: 'asdads', place: place}}
-    assert_response :redirect
-    follow_redirect!
-    assert_response :success
-    assert_equal place, Work.find(1).position
-  end
-
-  test "saving to an already taken place causes place reordering" do
-    origional_place = works(:jeep).position
-    category = works(:jeep).category_id
-    post category_works_path(category), params: {work: {title: 'dddd', image: nil, caption: 'dddd', place: origional_place}}
-    assert_response :redirect
-    follow_redirect!
-    assert_response :success
-    assert_not_equal origional_place, Work.where(title: 'jeep').take.position
-  end
 end

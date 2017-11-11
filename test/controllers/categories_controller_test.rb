@@ -53,4 +53,22 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
     assert flash[:success]
     assert_not Category.exists?(1)
   end
+
+  test "saving updates place" do
+    place = 9
+    put "/categories/#{1}", params: {category: {title: 'sss', image: nil, place: place}}
+    assert_response :redirect
+    follow_redirect!
+    assert_response :success
+    assert_equal place, Category.find(1).position
+  end
+
+  test "saving to an already taken place causes place reordering" do
+    origional_place = categories(:printing).position
+    post '/categories', params: {category: {title: 'dddd', image: nil, place: origional_place}}
+    assert_response :redirect
+    follow_redirect!
+    assert_response :success
+    assert_not_equal origional_place, Category.where(title: 'prints').take.position
+  end
 end

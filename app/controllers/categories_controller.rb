@@ -16,6 +16,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_info)
     if @category.save
+      save_cat_place(@category, @category.place.to_i)
       flash[:success] = 'Category created *nice*'
       redirect_to categories_path
     else
@@ -29,6 +30,7 @@ class CategoriesController < ApplicationController
 
   def update
     if @category.update_attributes(category_info)
+      save_cat_place(@category, @category.place.to_i)
       flash[:success] = 'category successfully updated'
       redirect_to categories_path
     else
