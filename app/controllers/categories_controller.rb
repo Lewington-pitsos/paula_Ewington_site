@@ -6,7 +6,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
-    @works = @category.works
+    @works = @category.works.order(:position)
   end
 
   def new

@@ -91,4 +91,9 @@ class WorksControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_not_equal origional_place, Work.where(title: 'jeep').take.position
   end
+
+  test "works displayed in order" do
+    get category_works_path(works(:jeep3).category_id)
+    assert_response :success
+  end
 end

@@ -4,18 +4,18 @@ jeep:
   image: default_work.jpg
   caption: 'asdassssssssssssssssssssssssssssssfasr5fsg'
   category_id: 1
-  position: 1
+  position: 3
 
 jeep2:
   title: jeep2
   image: default_work.jpg
   caption: 'asdassssssssssssssssssssssssssssssfasr5fsg'
   category_id: 1
-  position: 3
+  position: 2
 
 jeep3:
   title: jeep3
   image: default_work.jpg
   caption: 'asdassssssssssssssssssssssssssssssfasr5fsg'
   category_id: 1
-  position: 2
+  position: 1
