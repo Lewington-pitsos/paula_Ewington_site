@@ -2,7 +2,7 @@ class CategoriesController < ApplicationController
   before_action :find_category, only: [:edit, :show, :update, :destroy]
 
   def index
-    @categories = Category.all
+    @categories = Category.order(:position)
   end
 
   def show
