@@ -65,11 +65,20 @@ class WorksControllerTest < ActionDispatch::IntegrationTest
     new_title = 'new work'
     new_caption = 'caption'
     work_id = Work.where(title: title).take.id
-    put "/works/#{work_id}", params: {work: {title: new_title, image: nil, caption: new_caption}}
+    put "/works/#{work_id}", params: {work: {title: new_title, image: nil, caption: new_caption, place: 3}}
     assert_response :redirect
     follow_redirect!
     assert_response :success
     assert response.body.match(title)
     assert current_page?(route), 'the updated work has been designated a different category'
+  end
+
+  test "saving updates place" do
+    place = 9
+    put "/works/#{1}", params: {work: {title: 'sss', image: nil, caption: 'asdads', place: place}}
+    assert_response :redirect
+    follow_redirect!
+    assert_response :success
+    assert_equal place, Work.find(1).place
   end
 end
