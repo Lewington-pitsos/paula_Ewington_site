@@ -2,7 +2,7 @@ require 'test_helper'
 
 class WorkTest < ActiveSupport::TestCase
   test "has a place attribute" do
-    assert Work.first.place
+    assert Work.first.position
   end
 
   test "work only accepts >1 place values" do

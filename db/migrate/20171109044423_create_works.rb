@@ -5,7 +5,7 @@ class CreateWorks < ActiveRecord::Migration[5.1]
       t.string :caption
       t.string :image
       t.integer :category_id
-      t.integer :place, null: false
+      t.integer :position 
 
       t.timestamps
     end

@@ -37,7 +37,7 @@ class WorksControllerTest < ActionDispatch::IntegrationTest
   test 'works edits cause changes to changed fields' do
     title = 'changed'
     caption = 'different caption'
-    put "/works/#{1}", params: {work: {title: title, image: nil, caption: caption}}
+    put "/works/#{1}", params: {work: {title: title, image: nil, caption: caption, place: 8}}
     changed_work = Work.find(1)
     assert changed_work.title == title
     assert changed_work.caption == caption
@@ -79,6 +79,16 @@ class WorksControllerTest < ActionDispatch::IntegrationTest
     assert_response :redirect
     follow_redirect!
     assert_response :success
-    assert_equal place, Work.find(1).place
+    assert_equal place, Work.find(1).position
+  end
+
+  test "saving to an already taken place causes place reordering" do
+    origional_place = works(:jeep).position
+    category = works(:jeep).category_id
+    post category_works_path(category), params: {work: {title: 'dddd', image: nil, caption: 'dddd', place: origional_place}}
+    assert_response :redirect
+    follow_redirect!
+    assert_response :success
+    assert_not_equal origional_place, Work.where(title: 'jeep').take.position
   end
 end

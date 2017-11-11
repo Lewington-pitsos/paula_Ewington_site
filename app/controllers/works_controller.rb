@@ -17,6 +17,7 @@ class WorksController < ApplicationController
     @category = Category.find(params[:category_id])
     @work = @category.works.create(image_info)
     if @work
+      save_place(@category, @work, @work.place.to_i)
       flash[:success] = 'work uploaded and saved *nice*'
       redirect_to category_path(params[:category_id])
     else
@@ -36,6 +37,7 @@ class WorksController < ApplicationController
 
   def update
     if @work.update_attributes(image_info)
+      save_place(@work.category, @work, @work.place.to_i)
       flash[:success] = 'work updated'
       redirect_to category_path(@work.category_id)
     else
