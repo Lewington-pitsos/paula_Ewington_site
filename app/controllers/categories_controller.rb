@@ -50,6 +50,6 @@ class CategoriesController < ApplicationController
   end
 
   def category_info
-    params.require(:category).permit(:title, :image)
+    params.require(:category).permit(:title, :image, :place)
   end
 end

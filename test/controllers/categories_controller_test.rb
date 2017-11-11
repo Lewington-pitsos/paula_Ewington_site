@@ -18,7 +18,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
 
   test "creating new category updates db" do
     title = 'new'
-    post '/categories', params: {category: {title: title, image: nil}}
+    post '/categories', params: {category: {title: title, image: nil, place: 7}}
     assert_response :redirect
     follow_redirect!
     assert_response :success
@@ -32,7 +32,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
 
   test 'update path saves to db' do
     title = 'changed'
-    put '/categories/1', params: {category: {title: title, image: nil}}
+    put '/categories/1', params: {category: {title: title, image: nil, place: 7}}
     assert_response :redirect
     follow_redirect!
     assert_response :success
@@ -40,7 +40,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test 'update without title causes errors' do
-    put '/categories/1', params: {category: {title: nil, image: nil}}
+    put '/categories/1', params: {category: {title: nil, image: nil, place: 7}}
     assert_response :success
     assert flash[:error]
   end

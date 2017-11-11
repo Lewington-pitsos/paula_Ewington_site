@@ -2,8 +2,10 @@ printing:
   title: 'prints'
   image: nil
   id: 1
+  position: 2
 
 painting:
   title: 'paintings'
   image: nil
   id: 2
+  position: 1
