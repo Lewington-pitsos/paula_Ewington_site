@@ -8,12 +8,12 @@
       <%= image_tag work.image.url, size: "200x200" %>
       <% if session[:admin] %>
         <%= button_to 'Delete', "/works/#{work.id}", method: :delete %>
-        <%= button_to 'Edit', edit_work_path, method: :get %>
+        <%= button_to 'Edit', edit_work_path(work.id), method: :get %>
       <% end %>
     </li>
   <% end %>
 </ul>
 
 
-
+<%= link_to 'Upload new artwork', new_category_works_path(@category.id) %>
 <%= link_to 'All galleries', categories_path %>
