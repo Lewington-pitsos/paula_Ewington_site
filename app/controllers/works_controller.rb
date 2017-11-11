@@ -53,6 +53,6 @@ class WorksController < ApplicationController
   end
 
   def image_info
-    params.require(:work).permit(:title, :image, :caption)
+    params.require(:work).permit(:title, :image, :caption, :place)
   end
 end

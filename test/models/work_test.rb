@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class WorkTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  test "has a place attribute" do
+    assert Work.first.place
+  end
 end

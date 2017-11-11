@@ -13,6 +13,10 @@
   <%= f.text_area :caption %>
   <br /><br />
 
+  <%= f.label 'Place:' %>
+  <%= f.number_field :place, value: 1 %>
+  <br /><br />
+
   <%= f.submit 'Upload' %>
 <% end %>
 

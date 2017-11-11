@@ -46,7 +46,7 @@ class WorksControllerTest < ActionDispatch::IntegrationTest
   test "new works have category id" do
     title = 'new work'
     caption = 'caption'
-    post category_works_path(2), params: {work: {title: title, image: nil, caption: caption}}
+    post category_works_path(2), params: {work: {title: title, image: nil, caption: caption, place: 4}}
     new_work = Work.where(title: 'new work').take
     assert new_work.category_id
     assert_equal 2, new_work.category_id
@@ -55,7 +55,7 @@ class WorksControllerTest < ActionDispatch::IntegrationTest
   test "updated/craeted works reroute to the correct gallery" do
     title = 'new work'
     caption = 'caption'
-    post category_works_path(2), params: {work: {title: title, image: nil, caption: caption}}
+    post category_works_path(2), params: {work: {title: title, image: nil, caption: caption, place: 4}}
     assert_response :redirect
     follow_redirect!
     assert_response :success

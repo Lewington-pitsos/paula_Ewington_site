@@ -13,6 +13,10 @@
   <%= f.text_area :caption %>
   <br /><br />
 
+  <%= f.label 'Place (1 = first place, 2 = second, etc...):' %>
+  <%= f.number_field :place, value: @work.place %>
+  <br /><br />
+
   <%= f.submit 'Save changes' %>
 <% end %>
 
