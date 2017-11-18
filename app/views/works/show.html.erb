@@ -1,7 +1,8 @@
 <h1><%= @work.title %></h1>
-<br />
-<%= image_tag @work.image.url, size: "600x600" %>
-<br />
+<div class="work">
+  <%= image_tag @work.image.url%>
+</div>
+
 <p>
   <%= @work.caption %>
 </p>

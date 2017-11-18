@@ -1,9 +1,9 @@
 <h1>Gallery</h1>
 
-<ul>
+<ul class="covers">
   <% @categories.each do |category| %>
     <li>
-      <h3>Title: <%= link_to category.title, category_path(category.id) %></h3>
+      <h3><%= link_to category.title, category_path(category.id) %></h3>
       <br />
       <%= image_tag category.image.url, size: "200x200" %>
       <% if session[:admin] %>

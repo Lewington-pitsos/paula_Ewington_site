@@ -1,11 +1,11 @@
 <h1><%= @category.title %></h1>
 
-<ul>
+<ul class="covers">
   <% @works.each do |work| %>
     <li>
-      <h3>Title: <%= link_to work.title, work_path(work.id) %></h3>
+      <h3><%= link_to work.title, work_path(work.id) %></h3>
       <br />
-      <%= image_tag work.image.url, size: "200x200" %>
+      <%= image_tag work.image.url, size: "300x300" %>
       <% if session[:admin] %>
         <%= button_to 'Delete', "/works/#{work.id}", method: :delete %>
         <%= button_to 'Edit', edit_work_path(work.id), method: :get %>
@@ -14,6 +14,7 @@
   <% end %>
 </ul>
 
-
+<% if session[:admin] %>
 <%= link_to 'Upload new artwork', new_category_works_path(@category.id) %>
+<% end %>
 <%= link_to 'All galleries', categories_path %>

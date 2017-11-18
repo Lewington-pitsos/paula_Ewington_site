@@ -5,11 +5,7 @@
     </li>
     <li><%= link_to 'Front Page', front_path %></li>
     <li><%= link_to 'About the Artist', abouts_path %></li>
-    <br /><br />
     <% if session[:admin] %>
-      <li>
-        <%= link_to 'Edit Artist info', edit_about_path(1) %>
-      </li>
       <li><%= link_to 'Create new Catrgory', new_category_path %></li>
       <li><%= button_to 'Sign out', "/admins/#{session[:admin]}", method: :delete %></li>
     <% else %>
