@@ -1,7 +1,7 @@
-<div class="row covers covers">
+<div class="row covers">
   <% @works.each do |work| %>
 
-    <div class="col-sm-6 col-md-4">
+    <div class="col-sm-6 col-md-4 covers-col">
       <div class="card">
           <%= image_tag work.image.url, class: "card-img-top work-cover" %>
         <div class="card-block">
@@ -17,7 +17,9 @@
 
   <% end %>
   <div class="col-sm-6 col-md-4">
-    
+    <div class="card">
+      <a class="btn btn-primary home-cover d-flex align-items-center justify-content-center" href="<%= categories_path %>"><h1>Home</h1></a>
+    </div>
   </div>
 </div>
 
