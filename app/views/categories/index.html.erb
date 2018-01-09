@@ -1,10 +1,10 @@
-<h1>Gallery</h1>
+<h1 class="text-center">Gallery</h1>
 
-<div class="row covers">
+<div class="row covers justify-content-center">
   <% @categories.each do |category| %>
-  <div class="col-3">
-    <div class="card" style="width: 20rem;">
-        <%= image_tag category.image.url, size: "200x200", class: "card-img-top" %>
+  <div class="col-4">
+    <div class="card">
+        <%= image_tag category.image.url, class: "card-img-top" %>
       <div class="card-block">
         <a href="<%= category_path(category.id) %>" class="btn btn-primary btn-block"><%= category.title %></a>
         <% if session[:admin] %>

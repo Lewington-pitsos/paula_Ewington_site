@@ -2,6 +2,19 @@
 
 <ul class="covers">
   <% @works.each do |work| %>
+    <div class="col-4">
+      <div class="card">
+          <%= image_tag work.image.url, class: "card-img-top" %>
+        <div class="card-block">
+          <a href="<%= category_path(category.id) %>" class="btn btn-primary btn-block"><%= category.title %></a>
+          <% if session[:admin] %>
+            <h4>Position: <%= work.position %></h4>
+            <%= button_to 'Delete', "/works/#{work.id}", method: :delete %>
+            <%= button_to 'Edit', edit_work_path(work.id), method: :get %>
+          <% end %>
+        </div>
+      </div>
+    </div>
     <li>
       <h3><%= link_to work.title, work_path(work.id) %></h3>
       <br />
