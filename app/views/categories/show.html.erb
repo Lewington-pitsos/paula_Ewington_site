@@ -1,11 +1,12 @@
-<h1 class="text-center"><%= @category.title %></h1>
 
-<div class="row covers justify-content-center">
+
+<h1 class="text-center gallery-title"><%= @category.title %></h1>
+<div class="row covers covers no-gutters">
   <% @works.each do |work| %>
 
-    <div class="col-4">
+    <div class="col-sm-6 col-md-4">
       <div class="card">
-          <%= image_tag work.image.url, class: "card-img-top" %>
+          <%= image_tag work.image.url, class: "card-img-top work" %>
         <div class="card-block">
           <a href="<%= work_path(work.id) %>" class="btn btn-primary btn-block"><%= work.title %></a>
           <% if session[:admin] %>

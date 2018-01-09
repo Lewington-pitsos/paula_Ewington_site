@@ -1,8 +1,9 @@
-<h1 class="text-center">Gallery</h1>
+<div class="row">
 
-<div class="row covers justify-content-center">
+</div>
+<div class="row covers no-gutters">
   <% @categories.each do |category| %>
-  <div class="col-4">
+  <div class="col-sm-6 col-md-4">
     <div class="card">
         <%= image_tag category.image.url, class: "card-img-top" %>
       <div class="card-block">
