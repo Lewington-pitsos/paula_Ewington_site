@@ -1,10 +1,9 @@
-<h1><%= @work.title %></h1>
-<div class="work">
-  <%= image_tag @work.image.url%>
+<div class="row justify-content-center">
+  <div class="col-12 d-flex justify-content-center">
+    <%= image_tag @work.image.url, class: "img-fluid work"%>
+  </div>
+  <div class="col-12 d-flex flex-column">
+    <h1><%= @work.title %></h1>
+    <%= link_to "#{@work.category.title}", category_path(@work.category.id), class: 'btn btn-primary' %>
+  </div>
 </div>
-
-<p>
-  <%= @work.caption %>
-</p>
-
-<%= link_to 'gallery', category_path(@work.category.id) %>
