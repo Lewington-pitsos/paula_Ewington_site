@@ -1,12 +1,13 @@
-<h1><%= @category.title %></h1>
+<h1 class="text-center"><%= @category.title %></h1>
 
-<ul class="covers">
+<div class="row covers justify-content-center">
   <% @works.each do |work| %>
+
     <div class="col-4">
       <div class="card">
           <%= image_tag work.image.url, class: "card-img-top" %>
         <div class="card-block">
-          <a href="<%= category_path(category.id) %>" class="btn btn-primary btn-block"><%= category.title %></a>
+          <a href="<%= work_path(work.id) %>" class="btn btn-primary btn-block"><%= work.title %></a>
           <% if session[:admin] %>
             <h4>Position: <%= work.position %></h4>
             <%= button_to 'Delete', "/works/#{work.id}", method: :delete %>
@@ -15,20 +16,10 @@
         </div>
       </div>
     </div>
-    <li>
-      <h3><%= link_to work.title, work_path(work.id) %></h3>
-      <br />
-      <%= image_tag work.image.url, size: "300x300" %>
-      <% if session[:admin] %>
-        <h4>Position: <%= work.position %></h4>
-        <%= button_to 'Delete', "/works/#{work.id}", method: :delete %>
-        <%= button_to 'Edit', edit_work_path(work.id), method: :get %>
-      <% end %>
-    </li>
+
   <% end %>
-</ul>
+</div>
 
 <% if session[:admin] %>
-<%= link_to 'Upload new artwork', new_category_works_path(@category.id) %>
+  <%= link_to 'Upload new artwork', new_category_works_path(@category.id) %>
 <% end %>
-<%= link_to 'All galleries', categories_path %>
