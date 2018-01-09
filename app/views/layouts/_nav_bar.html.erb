@@ -1,4 +1,4 @@
-<nav>
+<!--<nav>
   <ul>
     <li>
       <%= link_to 'Categories', categories_path %>
@@ -12,4 +12,30 @@
       <li><%= link_to 'Admin Sign In', new_admin_path %></li>
     <% end %>
   </ul>
+</nav>
+-->
+<nav class="navbar navbar-expand-sm navbar-light bg-secondary" id="only-navbar">
+  <a class="navbar-brand" href="<%= categories_path %>">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse text-white" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="<%= front_path %>">Front Page</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="<%=  abouts_path %>">About the Artist</a>
+      </li>
+      <% if session[:admin] %>
+        <li class="nav-item active">
+          <a class="nav-link" href="<%=  new_category_path %>">Create new Catrgory</a>
+        </li>
+        <li class="nav-item active">
+          <%= button_to 'Sign out', "/admins/#{session[:admin]}", method: :delete %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </nav>

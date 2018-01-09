@@ -1,15 +1,18 @@
 <h1>Gallery</h1>
 
-<ul class="covers">
+<div class="row covers">
   <% @categories.each do |category| %>
-    <li>
-      <h3><%= link_to category.title, category_path(category.id) %></h3>
-      <br />
-      <%= image_tag category.image.url, size: "200x200" %>
-      <% if session[:admin] %>
-        <%= button_to 'Delete', "/categories/#{category.id}", method: :delete %>
-        <%= button_to 'Edit', edit_category_path(category.id), method: :get %>
-      <% end %>
-    </li>
+  <div class="col-3">
+    <div class="card" style="width: 20rem;">
+        <%= image_tag category.image.url, size: "200x200", class: "card-img-top" %>
+      <div class="card-block">
+        <a href="<%= category_path(category.id) %>" class="btn btn-primary btn-block"><%= category.title %></a>
+        <% if session[:admin] %>
+          <%= button_to 'Delete', "/categories/#{category.id}", method: :delete %>
+          <%= button_to 'Edit', edit_category_path(category.id), method: :get %>
+        <% end %>
+      </div>
+    </div>
+  </div>
   <% end %>
-</ul>
+</div>
