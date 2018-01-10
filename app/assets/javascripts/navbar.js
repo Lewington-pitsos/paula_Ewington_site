@@ -7,6 +7,6 @@ $(window).on('turbolinks:load', function() {
   $('#only-navbar').mouseleave(function() {
     $('#only-navbar').animate({
       "opacity": 0
-    }, 1000)
+    }, 200)
   })
 });

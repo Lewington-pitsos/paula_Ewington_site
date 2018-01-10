@@ -7,6 +7,6 @@ $(window).on('turbolinks:load', function() {
   $('.work-title').mouseleave(function() {
     $('.work-title').animate({
       "opacity": 0
-    }, 1000)
+    }, 200)
   })
 });
