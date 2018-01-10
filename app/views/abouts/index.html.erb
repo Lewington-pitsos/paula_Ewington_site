@@ -1,18 +1,42 @@
-<h1>About Paula Ewington</h1>
-<div class="work">
-  <%= image_tag @about.image.url %>
+<div class="row justify-content-center">
+  <div class="col-10">
+    <h1>Paula Ewington</h1>
+  </div>
 </div>
-<div class="about-info">
-  <h3>Artist Statament:<h3>
-  <p>
-    <%= @about.statement %>
-  </p>
-
-  <h3>Biography: <h3>
-  <p>
-    <%= @about.bio %>
-  </p>
+<div class="row justify-content-center">
+  <div class="col-10">
+    <%= image_tag @about.image.url, class: "img-fluid"%>
+  </div>
 </div>
-<% if session[:admin] %>
-<%= button_to 'Edit Artist info', edit_about_path(1), method: "get" %>
-<% end %>
+<div class="row justify-content-center">
+  <div class="col-10">
+    <button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#c-artist-statement" aria-expanded="false" aria-controls="c-artist-statement">
+      Artist Statament
+    </button>
+    <div class="collapse" id="c-artist-statement">
+      <div class="card card-body">
+        <%= @about.statement %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-10">
+    <button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#c-artist-bio" aria-expanded="false" aria-controls="c-artist-bio">
+      Biography
+    </button>
+    <div class="collapse" id="c-artist-bio">
+      <div class="card card-body">
+        <%= @about.bio %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row justify-content-center">
+  <div class="col-10">
+    <%= link_to "Home", categories_path, class: 'btn btn-primary btn-block work-link' %>
+    <% if session[:admin] %>
+    <%= button_to 'Edit Artist info', edit_about_path(1), method: "get" %>
+    <% end %>
+  </div>
+</div>

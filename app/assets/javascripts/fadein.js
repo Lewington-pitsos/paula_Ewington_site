@@ -1,5 +1,5 @@
 $(window).on('turbolinks:load', function() {
-  $('.fadein').mouseenter(function(e) {
+  $('.fadein').closest('.fadein').mouseenter(function(e) {
     $(e.target).animate({
       "opacity": 1
     }, 1000)
