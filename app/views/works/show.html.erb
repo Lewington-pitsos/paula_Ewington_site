@@ -1,9 +1,15 @@
 <div class="row justify-content-center">
-  <div class="col-12 d-flex justify-content-center">
-    <%= image_tag @work.image.url, class: "img-fluid work"%>
-  </div>
-  <div class="col-12 d-flex flex-column">
-    <h1><%= @work.title %></h1>
-    <%= link_to "#{@work.category.title}", category_path(@work.category.id), class: 'btn btn-primary' %>
+  <div class="col">
+    <div class="work-display d-flex flex-column align-items-center">
+      <div class="work-holder">
+        <div class="xxx">
+          <%= image_tag @work.image.url, class: "img-fluid work"%>
+          <div class="work-title d-flex align-items-center justify-content-center">
+            <h1><%= @work.title %></h1>
+          </div>
+        </div>
+        <%= link_to 'gallery', category_path(@work.category.id), class: 'btn btn-primary btn-block work-link' %>
+      </div>
+    </div>
   </div>
 </div>
