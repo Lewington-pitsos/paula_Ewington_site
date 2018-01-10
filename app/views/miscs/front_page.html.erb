@@ -9,10 +9,13 @@
   </head>
 
   <body>
-    <h1>Welcome!</h1>
-
-    <%= image_tag 'default_work.jpg', class: "front" %>
-
-    <%= link_to 'Galleries', categories_path %>
+    <a href="<%= categories_path %>">
+      <div class="image-holder">
+        <%= image_tag "/assets/default_work", class: "img-fluid front"%>
+        <div class="work-title d-flex align-items-center justify-content-center">
+          <h1>Welcome</h1>
+        </div>
+      </a>
+    </div>
   </body>
 </html>
