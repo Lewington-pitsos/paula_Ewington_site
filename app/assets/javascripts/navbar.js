@@ -5,7 +5,6 @@ $(window).on('turbolinks:load', function() {
     }, 1000)
   })
   $('#only-navbar').mouseleave(function() {
-    console.log(4234);
     $('#only-navbar').animate({
       "opacity": 0
     }, 1000)
