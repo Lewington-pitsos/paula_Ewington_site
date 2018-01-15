@@ -5,8 +5,12 @@
       <img src="<%= @work.image.url %>" class="img-fluid work" alt="Responsive image">
     </div>
     <div class="containter-fluid work-description work">
-      <h5>Some Title</h5>
-      <p>lectores legere me lius quod ii legunt saepius. Claritas ninja est etiam processus dynamicus, qui ninja sequitur mutationem consuetudium lectorum. Mirum ninja est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem ninja ipsum modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in ninja futurum.</p>
+      <h5><%= @work.title %></h5>
+      <p><%= 'Claritas ninja est etiam processus dynamicus, qui ninja sequitur mutationem consuetudium lectorum. Mirum ninja est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem ninja ipsum modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in ninja futurum.' %></p>
     </div>
   </div>
+</div>
+
+<div class="container-fluid fixed-bottom slider fadein p-3">
+  <h3 class="white text-center"><%= link_to "Return To #{@work.category.title}", category_path(@work.category.id), class: 'nav-link' %></h3>
 </div>

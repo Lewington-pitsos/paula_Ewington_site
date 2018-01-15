@@ -1,9 +1,18 @@
 $ps-off-white: #ccc
 $ps-off-white-lower: #aaa
 
+@mixin transparent-bg
+  color: #fff
+  background: #ccc
+  background: rgba(0,0,0,0.3)
+
+.slider
+  @include transparent-bg
+
 #only-navbar
+  height: 4rem
   a
-    color: $ps-text-light
+    color: white
 
 .covers-col
   margin-bottom: 30px
@@ -23,6 +32,7 @@ $ps-off-white-lower: #aaa
 
 #main
   margin-bottom: 10rem
+  margin-top: 4rem
 
 .work-cover
   @include cover-shadow
@@ -63,9 +73,6 @@ $ps-off-white-lower: #aaa
 
 .fadein
   opacity: 0
-
-.work-title
-s
 
 .front
   height: 100vh
