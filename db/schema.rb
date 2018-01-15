@@ -40,10 +40,13 @@ ActiveRecord::Schema.define(version: 20171110074432) do
 
   create_table "works", force: :cascade do |t|
     t.string "title", null: false
+    t.string "size"
+    t.string "medium"
     t.string "caption"
     t.string "image"
     t.integer "category_id"
     t.integer "position"
+    t.integer "year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_works_on_category_id"
