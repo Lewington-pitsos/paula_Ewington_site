@@ -1,19 +1,20 @@
-<div class="row">
-
-</div>
 <div class="row covers">
   <% @categories.each do |category| %>
-  <div class="col-sm-6">
-    <div class="card">
-        <%= image_tag category.image.url, class: "card-img-top" %>
-      <div class="card-block">
-        <a href="<%= category_path(category.id) %>" class="btn btn-primary btn-block"><%= category.title %></a>
+
+    <div class="col-sm-6 covers-col">
+      <div class="containter-fluid work-description category mb-5">
+        <h5 class="text-center"><%= category.title %></h5>
         <% if session[:admin] %>
           <%= button_to 'Delete', "/categories/#{category.id}", method: :delete %>
           <%= button_to 'Edit', edit_category_path(category.id), method: :get %>
         <% end %>
       </div>
+      <div class="work-cover-wrapper d-flex flex-column align-items-center">
+        <div class="work-cover z-depth-5">
+          <a href="<%= category_path(category.id) %>" class=""><%= image_tag category.image.url, class: "img-fluid" %></a>
+        </div>
+      </div>
     </div>
-  </div>
+
   <% end %>
 </div>
