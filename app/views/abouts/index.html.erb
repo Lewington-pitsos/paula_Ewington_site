@@ -1,18 +1,14 @@
 <div class="row justify-content-center">
   <div class="col-10">
-    <h1 class="text-center">Paula Ewington</h1>
-  </div>
-</div>
-<div class="row justify-content-center">
-  <div class="col-10">
     <div class="work-image z-depth-5">
+      <h1 class="text-center artist-name m-0 p-2">Paula Ewington</h1>
       <%= image_tag @about.image.url, class: "img-fluid work"%>
     </div>
   </div>
 </div>
 <div class="row justify-content-center">
-  <div class="col-6">
-    <div class="container-fluid work-description work p-0 m-0">
+  <div class="col-5">
+    <div class="container-fluid work-description about p-0 m-0">
       <button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#c-artist-statement" aria-expanded="false" aria-controls="c-artist-statement">
         Artist Statament
       </button>
@@ -23,8 +19,8 @@
       </div>
     </div>
   </div>
-  <div class="col-6">
-    <div class="container-fluid work-description work p-0 m-0">
+  <div class="col-5">
+    <div class="container-fluid work-description about p-0 m-0">
       <button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#c-artist-bio" aria-expanded="false" aria-controls="c-artist-bio">
         Biography
       </button>
@@ -35,4 +31,8 @@
       </div>
     </div>
   </div>
+</div>
+
+<div class="container-fluid fixed-bottom slider fadein p-3">
+  <h3 class="white text-center"><%= link_to "Return Home", categories_path, class: 'nav-link' %></h3>
 </div>
