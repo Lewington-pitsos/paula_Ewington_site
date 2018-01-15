@@ -1,12 +1,11 @@
 
-  <div class="work-display d-flex flex-column align-items-center">
-    <div class="work-holder">
-      <div class="image-holder">
-        <%= image_tag @work.image.url, class: "img-fluid work"%>
-        <div class="work-title d-flex align-items-center justify-content-center fadein">
-          <h1><%= @work.title %></h1>
-        </div>
-      </div>
-      <%= link_to "Return to #{@work.category.title}", category_path(@work.category.id), class: 'btn btn-primary btn-block work-link' %>
+<div class="col-12 covers-col">
+  <div class="work-wrapper d-flex flex-column align-items-center">
+    <div class="work-image z-depth-5">
+      <img src="<%= @work.image.url %>" class="img-fluid work" alt="Responsive image">
+    </div>
+    <div class="containter-fluid work-description work">
+      <p>lectores legere me lius quod ii legunt saepius. Claritas ninja est etiam processus dynamicus, qui ninja sequitur mutationem consuetudium lectorum. Mirum ninja est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem ninja ipsum modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in ninja futurum.</p>
     </div>
   </div>
+</div>
