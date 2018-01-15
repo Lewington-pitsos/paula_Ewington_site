@@ -2,25 +2,17 @@
   <% @works.each do |work| %>
 
     <div class="col-sm-6 col-md-4 covers-col">
-      <div class="card">
-          <%= image_tag work.image.url, class: "card-img-top work-cover" %>
-        <div class="card-block">
-          <a href="<%= work_path(work.id) %>" class="btn btn-primary btn-block"><%= work.title %></a>
-          <% if session[:admin] %>
-            <h4>Position: <%= work.position %></h4>
-            <%= button_to 'Delete', "/works/#{work.id}", method: :delete %>
-            <%= button_to 'Edit', edit_work_path(work.id), method: :get %>
-          <% end %>
+      <div class="work-cover-wrapper d-flex flex-column align-items-center">
+        <div class="work-cover z-depth-5">
+          <a href="<%= work_path(work.id) %>"><img src="<%= work.image.url %>" class="img-fluid" alt="Responsive image"></a>
+        </div>
+        <div class="containter-fluid work-description">
+          <p>lectores legere me lius quod ii legunt saepius. Claritas ninja est etiam processus dynamicus, qui ninja sequitur mutationem consuetudium lectorum. Mirum ninja est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem ninja ipsum modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in ninja futurum.</p>
         </div>
       </div>
     </div>
 
   <% end %>
-  <div class="col-sm-6 col-md-4">
-    <div class="card">
-      <a class="btn btn-primary home-cover d-flex align-items-center justify-content-center" href="<%= categories_path %>"><h1>Home</h1></a>
-    </div>
-  </div>
 </div>
 
 <% if session[:admin] %>
