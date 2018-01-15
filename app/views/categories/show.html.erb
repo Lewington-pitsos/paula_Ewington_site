@@ -7,10 +7,38 @@
           <a href="<%= work_path(work.id) %>"><img src="<%= work.image.url %>" class="img-fluid" alt="Responsive image"></a>
         </div>
         <div class="row justify-content-center">
-          <div class="col-6">
+          <div class="col-md-6 col-7">
             <div class="containter-fluid work-description cover">
               <h5><%= work.title %></h5>
-              <p><%= 'Claritas ninja est etiam processus dynamicus, qui ninja sequitur mutationem consuetudium lectorum. Mirum ninja est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem ninja ipsum modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in ninja futurum.' %></p>
+              <table>
+                <tbody>
+                  <tr>
+                    <td class="font-weight-bold">
+                      Medium:
+                    </td>
+                    <td>
+                      <%= work.medium %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="font-weight-bold">
+                      Dimensions:
+                    </td>
+                    <td>
+                      <%= work.size %>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="font-weight-bold">
+                      Year
+                    </td>
+                    <td>
+                      <%= work.year %>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p><%= work.caption %></p>
             </div>
           </div>
         </div>
