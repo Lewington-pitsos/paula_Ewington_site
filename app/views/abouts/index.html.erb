@@ -35,6 +35,9 @@
   </div>
 </div>
 
-<div class="container-fluid fixed-bottom slider fadein p-3">
-  <h3 class="white text-center"><%= link_to "Return Home", categories_path, class: 'nav-link' %></h3>
+<div class="container-fluid fixed-bottom slider fadein p-3 text-center">
+  <h3><%= link_to "Return Home", categories_path, class: 'nav-link' %></h3>
+  <% if session[:admin] %>
+    <%= button_to 'Edit Artist info', edit_about_path(1), method: "get" %>
+  <% end %>
 </div>
