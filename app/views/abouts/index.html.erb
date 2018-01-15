@@ -5,38 +5,34 @@
 </div>
 <div class="row justify-content-center">
   <div class="col-10">
-    <%= image_tag @about.image.url, class: "img-fluid"%>
-  </div>
-</div>
-<div class="row justify-content-center">
-  <div class="col-10">
-    <button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#c-artist-statement" aria-expanded="false" aria-controls="c-artist-statement">
-      Artist Statament
-    </button>
-    <div class="collapse" id="c-artist-statement">
-      <div class="card card-body">
-        <%= @about.statement %>
-      </div>
+    <div class="work-image z-depth-5">
+      <%= image_tag @about.image.url, class: "img-fluid work"%>
     </div>
   </div>
 </div>
 <div class="row justify-content-center">
-  <div class="col-10">
-    <button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#c-artist-bio" aria-expanded="false" aria-controls="c-artist-bio">
-      Biography
-    </button>
-    <div class="collapse" id="c-artist-bio">
-      <div class="card card-body">
-        <%= @about.bio %>
+  <div class="col-6">
+    <div class="container-fluid work-description work p-0 m-0">
+      <button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#c-artist-statement" aria-expanded="false" aria-controls="c-artist-statement">
+        Artist Statament
+      </button>
+      <div class="collapse" id="c-artist-statement">
+        <div class="card card-body">
+          <%= @about.statement %>
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="row justify-content-center">
-  <div class="col-10">
-    <%= link_to "Home", categories_path, class: 'btn btn-primary btn-block work-link' %>
-    <% if session[:admin] %>
-    <%= button_to 'Edit Artist info', edit_about_path(1), method: "get" %>
-    <% end %>
+  <div class="col-6">
+    <div class="container-fluid work-description work p-0 m-0">
+      <button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#c-artist-bio" aria-expanded="false" aria-controls="c-artist-bio">
+        Biography
+      </button>
+      <div class="collapse" id="c-artist-bio">
+        <div class="card card-body">
+          <%= @about.bio %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
