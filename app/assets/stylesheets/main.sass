@@ -1,22 +1,6 @@
 $ps-off-white: #eef
 $ps-off-white-lower: #aaa
 
-@mixin transparent-bg
-  color: #fff
-  background: #ccc
-  background: rgba(0,0,0,0.3)
-
-.slider
-  @include transparent-bg
-
-#only-navbar
-  height: 4rem
-  a
-    color: white
-
-.covers-col
-  margin-bottom: 6rem
-
 @mixin light-shadow
   box-shadow: 0 13px 12px 0 rgba(0,0,0,.1), 0 20px 39px 0 rgba(0,0,0,.11)
 
@@ -26,9 +10,28 @@ $ps-off-white-lower: #aaa
 @mixin work-shadow
   box-shadow: 0 54px 58px 0 rgba(0,0,0,.4), 0 80px 154px 0 rgba(0,0,0,.44)
 
+
+@mixin transparent-bg
+  color: #fff
+  background: #ccc
+  background: rgba(0,0,0,0.3)
+
+.slider
+  @include transparent-bg
+
+#only-navbar
+  @include light-shadow
+  background: $ps-off-white
+  height: 4rem
+  a
+    color: black
+
+.covers-col
+  margin-bottom: 6rem
+
 #main
   margin-bottom: 10rem
-  margin-top: 4rem
+  margin-top: 8rem
 
 .work-cover
   @include cover-shadow

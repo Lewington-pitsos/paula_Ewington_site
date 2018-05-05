@@ -1,20 +1,4 @@
-<!--<nav>
-  <ul>
-    <li>
-      <%= link_to 'Categories', categories_path %>
-    </li>
-    <li><%= link_to 'Front Page', front_path %></li>
-    <li><%= link_to 'About the Artist', abouts_path %></li>
-    <% if session[:admin] %>
-      <li><%= link_to 'Create new Catrgory', new_category_path %></li>
-      <li><%= button_to 'Sign out', "/admins/#{session[:admin]}", method: :delete %></li>
-    <% else %>
-      <li><%= link_to 'Admin Sign In', new_admin_path %></li>
-    <% end %>
-  </ul>
-</nav>
--->
-<nav class="navbar navbar-expand-sm navbar-light fadein slider fixed-top" id="only-navbar">
+<nav class="navbar navbar-expand-sm fixed-top" id="only-navbar">
   <a class="navbar-brand" href="<%= categories_path %>">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
