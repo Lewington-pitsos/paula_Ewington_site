@@ -29,8 +29,12 @@ class CategoriesController < ApplicationController
   end
 
   def update
+    # record the old position and check if the inputs make sense
+    # if so, save the category being updated to the new position, shuffle all the categories down that can be shuffled down and rerout to the portfolio page
+    old_position = @category.position
     if @category.update_attributes(category_info)
       save_cat_place(@category, @category.place.to_i)
+      cat_shuffle_down(old_position)
       flash[:success] = 'category successfully updated'
       redirect_to categories_path
     else
@@ -40,7 +44,15 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
+    @category.works.each do |work|
+      work.destroy
+    end
+
+    # the deleted categorie's position is recorded, the category is destroyed, and THEN all higher categories are shuffled down as far as they can be shuffled down
+    deleted_position = @category.position
     @category.destroy
+    cat_shuffle_down(deleted_position)
+
     flash[:success] = 'category deleted'
     redirect_to categories_path
   end
