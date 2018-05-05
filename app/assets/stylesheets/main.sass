@@ -29,6 +29,8 @@ $ps-off-white-lower: #aaa
   @include light-shadow
   background: $ps-off-white
   height: 4rem
+  li
+    padding: 10px
   a
     color: black
 
@@ -38,16 +40,23 @@ $ps-off-white-lower: #aaa
 #main
   margin-bottom: 10rem
   margin-top: 8rem
+  max-width: 1500px
 
 .work-cover
   @include cover-shadow
   margin-bottom: 3rem
+
+.work-cover-wrapper,
+.work-wrapper
+  .row
+    width: 100%
 
 .work-image
   @include work-shadow
   margin-bottom: 6rem
 
 .work-description
+  width: 100%
   font-size: inherit
   background: $ps-off-white
   &.cover

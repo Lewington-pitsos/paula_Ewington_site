@@ -10,7 +10,7 @@
       <li class="nav-item">
         <a class="nav-link" href="<%=  abouts_path %>">About the Artist</a>
       </li>
-      <% if @work %>
+      <% if @work && @work.category %>
         <li>
           <%= link_to "Return To #{@work.category.title}", category_path(@work.category.id), class: 'nav-link' %>
         </li>
@@ -22,7 +22,7 @@
         <li class="nav-item">
           <%= button_to 'Sign out', "/admins/#{session[:admin]}", method: :delete %>
         </li>
-        <% if @category %>
+        <% if @category && @category.title %>
           <li>
             <%= link_to "Upload new artwork to #{@category.title}", new_category_works_path(@category.id) %>
           </li>
