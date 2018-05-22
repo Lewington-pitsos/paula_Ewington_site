@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 module PaulaSite
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    config.serve_static_assets = true
     config.load_defaults 5.1
     config.assets.precompile += %w( application.css.sass application.js )
     # Settings in config/environments/* take precedence over those specified here.
