@@ -9,8 +9,12 @@
   <%= f.text_area :bio %>
   <br />
 
-  <%= f.label 'Cover image:' %>
+  <%= f.label 'Main image:' %>
   <%= f.file_field :image %>
+  <br />
+
+  <%= f.label 'Cover image:' %>
+  <%= f.file_field :cover %>
   <br />
 
   <%= f.submit 'Update' %>

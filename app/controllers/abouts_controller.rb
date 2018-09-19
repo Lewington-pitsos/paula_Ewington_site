@@ -19,6 +19,6 @@ class AboutsController < ApplicationController
   end
 
   def about_info
-      params.require(:about).permit(:statement, :image, :bio)
+      params.require(:about).permit(:statement, :image, :cover, :bio)
   end
 end
