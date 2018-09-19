@@ -10,6 +10,8 @@ ruby "2.4.3"
 gem 'bootstrap', '~> 4.0.0.alpha3'
 gem 'autoprefixer-rails'
 
+gem 'figaro'
+gem 'fog-aws'
 gem 'pg', "~> 0.18"
 gem 'pry'
 gem 'carrierwave', '~> 1.0'
