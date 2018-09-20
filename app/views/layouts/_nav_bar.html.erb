@@ -1,5 +1,5 @@
 <div class="fixed-top" id="nav-holder">
-<nav class="navbar navbar-expand-sm animated fadeOutUp hidden" id="only-navbar">
+<nav class="navbar navbar-expand-sm" id="only-navbar">
   <a class="navbar-brand" href="<%= categories_path %>">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -8,7 +8,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="<%= abouts_path %>">About the Artist</a>
+        <a class="nav-link" href="<%= abouts_path %>">About</a>
       </li>
       <% if @work && @work.category %>
         <li>

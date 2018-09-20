@@ -16,17 +16,30 @@ $ps-off-white-lower: #aaa
   background: #ccc
   background: rgba(0,0,0,0.3)
 
+div,
+img
+  border-radius: 4px
+
 .hidden
   display: none
 
 .slider
   @include transparent-bg
 
+.nav-toggler
+  text-align: center
+  padding: 10px 15px
+  @include light-shadow
+  background: $ps-off-white
+  width: 8rem
+  margin: auto
+  border-radius: 0 0 3px 3px
+
 #nav-holder
   height: 4rem
 
 #only-navbar
-  @include light-shadow
+  @include cover-shadow
   background: $ps-off-white
   height: 4rem
   li
@@ -59,33 +72,37 @@ $ps-off-white-lower: #aaa
   width: 100%
   font-size: inherit
   background: $ps-off-white
-  &.cover
-    padding: 0.6rem 1rem 0.6rem 0.6rem
-    @include light-shadow
-    font-size: 3px
-    h5
-      font-size: 5px
-      margin-bottom: 0.2rem
-    p
-      margin-bottom: 0
-    table
-      margin-bottom: 0.2rem
-  &.work
-    padding: 1.6rem 6rem 1.6rem 1.6rem
-    @include cover-shadow
-    font-size: 0.8rem
-    table
-      margin-bottom: 1rem
-      td
-        padding-right: 2rem
-  &.about
-    padding: 1.6rem 6rem 1.6rem 1.6rem
-    @include cover-shadow
-    font-size: 1rem
-  &.category
-    padding: 0.5rem
-    @include light-shadow
-    font-size: 1rem
+
+.cover-box
+  padding: 0.6rem 1rem 0.6rem 0.6rem
+  @include light-shadow
+  font-size: 3px
+  h5
+    font-size: 5px
+    margin-bottom: 0.2rem
+  p
+    margin-bottom: 0
+  table
+    margin-bottom: 0.2rem
+
+.work-box
+  padding: 1.6rem 6rem 1.6rem 1.6rem
+  @include cover-shadow
+  font-size: 0.8rem
+  table
+    margin-bottom: 1rem
+    td
+      padding-right: 2rem
+
+.about-box
+  padding: 1.6rem 6rem 1.6rem 1.6rem
+  @include cover-shadow
+  font-size: 1rem
+
+.category-box
+  padding: 0.5rem
+  @include light-shadow
+  font-size: 1rem
 
 .home-cover
   height: 324px

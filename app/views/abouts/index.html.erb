@@ -1,19 +1,19 @@
 <div class="row justify-content-center">
   <div class="col-lg-10 col-md-12">
-    <div class="containter-fluid work-description category mb-5">
+    <div class="containter-fluid work-description category-box mb-5">
       <h1 class="text-center artist-name m-0 p-2">Paula Ewington</h1>
       <% if session[:admin] %>
          <%= button_to 'Edit', edit_about_path(@about.id), method: :get %>
       <% end %>
     </div>
     <div class="work-image z-depth-5">
-      <%= image_tag @about.image.url, class: "img-fluid work"%>
+      <%= image_tag @about.image.url, class: "img-fluid work-box"%>
     </div>
   </div>
 </div>
 <div class="row justify-content-center">
   <div class="col-lg-5 mb-5">
-    <div class="container-fluid work-description about p-0 m-0">
+    <div class="container-fluid work-description about-box p-0 m-0">
       <div class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#c-artist-statement" aria-expanded="false" aria-controls="c-artist-statement">
         <h5>Artist Statament</h5>
       </div>
@@ -25,7 +25,7 @@
     </div>
   </div>
   <div class="col-lg-5">
-    <div class="container-fluid work-description about p-0 m-0">
+    <div class="container-fluid work-description about-box p-0 m-0">
       <div class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#c-artist-bio" aria-expanded="false" aria-controls="c-artist-bio">
         <h5>Biography</h5>
       </div>

@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-12">
-    <div class="containter-fluid work-description category site-title p-3">
-      <h3 class="text-center">Weclome to Paula Ewington's Online Gallery</h3>
+    <div class="containter-fluid work-description category-box site-title p-3">
+      <h3 class="text-center">Paula Ewington's Online Gallery</h3>
     </div>
   </div>
 </div>
@@ -10,7 +10,7 @@
   <% @categories.each do |category| %>
 
     <div class="col-sm-6 covers-col">
-      <div class="containter-fluid work-description category mb-5">
+      <div class="containter-fluid work-description category-box mb-5">
         <h5 class="text-center"><%= category.title %></h5>
         <% if session[:admin] %>
           <%= button_to 'Delete', "/categories/#{category.id}", method: :delete %>
@@ -27,7 +27,7 @@
   <% end %>
 
   <div class="col-sm-6 covers-col">
-    <div class="containter-fluid work-description category mb-5">
+    <div class="containter-fluid work-description category-box mb-5">
       <h5 class="text-center">About Paula</h5>
     </div>
     <div class="work-cover-wrapper d-flex flex-column align-items-center">
