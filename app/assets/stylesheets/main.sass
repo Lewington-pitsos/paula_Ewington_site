@@ -1,5 +1,7 @@
-$ps-off-white: #eef
+$ps-off-white: #fff
 $ps-off-white-lower: #aaa
+$ps-text: #373737
+$ps-text-light: #6a3737
 
 @mixin light-shadow
   box-shadow: 0 13px 12px 0 rgba(0,0,0,.1), 0 20px 39px 0 rgba(0,0,0,.11)
@@ -10,14 +12,23 @@ $ps-off-white-lower: #aaa
 @mixin work-shadow
   box-shadow: 0 54px 58px 0 rgba(0,0,0,.4), 0 80px 154px 0 rgba(0,0,0,.44)
 
-
 @mixin transparent-bg
   color: #fff
   background: #ccc
   background: rgba(0,0,0,0.3)
 
+body
+  color: $ps-text
+  background: #f4f4f4
+  font-family: 'Open Sans', sans-serif
+
+h1, h2, h3, h4, h5, h6, .heading
+  font-family: 'Playfair Display', serif
+  font-weight: bold
+
 div,
-img
+img,
+nav
   border-radius: 4px
 
 .hidden
@@ -44,8 +55,11 @@ img
   height: 4rem
   li
     padding: 10px
+    display: inline
   a
-    color: black
+    color: $ps-text
+    &:hover
+      color: $ps-text-light
 
 .covers-col
   margin-bottom: 6rem
@@ -83,7 +97,11 @@ img
   p
     margin-bottom: 0
   table
+    font-size: 15px
     margin-bottom: 0.2rem
+
+.work-name
+  padding-bottom: 1.2rem
 
 .work-box
   padding: 1.6rem 6rem 1.6rem 1.6rem
@@ -132,3 +150,7 @@ input[value="Delete"]
 
 .card.card-body
   border: none
+
+.info-toggle
+  &[aria-expanded="true"]
+    color: $ps-text-light
