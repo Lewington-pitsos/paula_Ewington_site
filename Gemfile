@@ -14,7 +14,7 @@ gem 'figaro'
 gem 'fog-aws'
 gem 'pg', "~> 0.18"
 gem 'pry'
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 
 gem 'rails', '~> 5.1.4'
 gem 'puma', '~> 3.7'
